@@ -1,0 +1,27 @@
+<form #meinFormular="ngForm" (ngSubmit)="login(meinFormular.value)">
+  <fieldset ngModelGroup="name">
+    <label>Vorname:</label>
+    <input type="text" name="vorname" ngModel required maxlength="8">
+    <label>Nachname:</label>
+    <input type="text" name="nachname" ngModel required maxlength="8">
+  </fieldset>
+  <label>Email:</label>
+  <input type="text" name="mail" required email ngModel>
+  <label>Password:</label>
+  <input type="password" name="password" ngModel required minlength="8" pattern=".*\d.*">
+  <button type="submit">Login</button>
+</form>
+
+<form [formGroup]="loginForm" (ngSubmit)="login1()">
+  <fieldset formGroupName="name">
+    <label>Vorname:</label>
+    <input type="text" name="vorname" required maxlength="8" formControlName="vorname">
+    <label>Nachname:</label>
+    <input type="text" name="nachname" required maxlength="8" formControlName="nachname">
+  </fieldset>
+  <label>Email:</label>
+  <input type="text" name="mail" required email formControlName="email">
+  <label>Password:</label>
+  <input type="password" name="password" required minlength="8" pattern=".*\d.*" formControlName="password">
+  <button type="submit">Login</button>
+</form>

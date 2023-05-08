@@ -1,0 +1,75 @@
+<div #para (click)="myEventUrl()">
+  <a #Link [href]="url" > Google</a>
+  {{Link}} <br>
+  {{para}}
+</div>
+
+<div (click)="myClick()">
+  <p>hier klicken, um hochzuzählen.</p>
+  <p>zahl: {{length}}  </p>
+</div>
+
+<div (click)="myClickHandler($event)">
+    <p>klickHandlerEvent</p>
+</div>
+
+<div (keyup)="myClickHandler($event)">
+  <input type="text">
+</div>
+
+<ol>
+  <li *ngFor="let x of videos; index as i; first as f; last as l;  even as e; odd as o"> <!-- even: Gerade, odd: Ungerade -->
+      {{x}}
+  </li>
+</ol>
+
+<ol>
+  <li *ngFor="let x of videos; even as e">
+    <span *ngIf="e == true; then content else other"></span>
+    <ng-template #content>gerade index: {{x}}</ng-template>
+    <ng-template #other>NOT EVEN</ng-template>
+  </li>
+</ol>
+
+<ol >
+  <li [ngSwitch]="length">
+    <span *ngSwitchCase="0"> laenge ist Kurz</span>
+    <span *ngSwitchCase="1"> laenge ist Kurz</span>
+    <span *ngSwitchCase="2"> laenge ist Kurz</span>
+    <span *ngSwitchCase="3"> laenge ist Kurz</span>
+    <span *ngSwitchDefault> laenge ist Okay</span>
+  </li>
+</ol>
+
+<div>
+  <p>{{name | uppercase}}</p>
+</div>
+
+<div>
+  <p [class.green]="isGreenActive">{{name | uppercase}}</p>
+</div>
+
+<div>
+  <p [ngClass]="{disabled: isDisabled, green: isGreenActive}">{{name | uppercase}}</p>
+</div>
+
+<div>
+  <p [style.color]="meineFarbe">{{name | uppercase}}</p>
+</div>
+
+<div>
+  <p [ngStyle]="{'color': meineFarbe, 'font-size': '30px'}">{{name | uppercase}}</p>
+</div>
+
+<div (click)="myClick1()">
+  <p>click um Eigenschaften zu aktivieren.</p>
+</div>
+
+<div (click)="myClick2()">
+  <p>click um Emitter zu aktivieren.</p>
+</div>
+
+<div (click)="myClick3()">
+  <p>click um videos zu sehen.</p>
+</div>
+

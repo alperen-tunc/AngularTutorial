@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularTutorial';
+  myVideoID = 42;
+  myAktiv = 'aktiv';
+
+  myClick2(){
+    window.alert("funktioniert...")
+  }
 }
