@@ -12,20 +12,20 @@ export class WebsiteComponent implements OnInit {
   priceInEuro: any;
   loginForm = new FormGroup({
     name: new FormGroup({
-      vorname: new FormControl(null),
-      nachname: new FormControl()
-    }),
-    email: new FormControl(),
-    password: new FormControl()
+      vorname: new FormControl(null, Validators.max(13)),
+      nachname: new FormControl(null,[ Validators.maxLength(8)])
+    } ),
+    email: new FormControl(null,[ Validators.email, WebsiteComponent.myValidator]),
+    password: new FormControl(null, [Validators.min(8), Validators.required])
   });
 
   constructor(private client:HttpClient) {  }
 
-  static myValidator(control: FormControl): { [key: string]: any } {
-    if (control.value == 'Alperen') {
+  static myValidator(control: FormControl): { [p: string]: any } | null {
+    if (control.value == 'alperentunc@mail.de') {
       return {name: {valid: false}};
     } else {
-      return this;
+      return null;
     }
   }
 
@@ -55,6 +55,6 @@ export class WebsiteComponent implements OnInit {
 
   login1() {
     console.log(this.loginForm);
-    this.loginForm.controls['password'].setValidators(Validators.minLength(8));
+    this.loginForm.controls['password'].reset();
   }
 }

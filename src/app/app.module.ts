@@ -6,27 +6,26 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { VideoComponent } from './video/video.component';
 import { VideoDBService } from "./shared/video-db.service";
-import { WebsiteComponent } from './website/website.component';
 import { Routes, RouterModule } from "@angular/router";
+import {MeinModule} from "./mein/mein.module";
+import { FlashyDirective } from './flashy.directive';
 
 const meineRouten: Routes = [
   { path: 'video/:id', component: VideoComponent },
-  { path: 'website', component: WebsiteComponent },
-  { path:'',component: WebsiteComponent, pathMatch:'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoComponent,
-    WebsiteComponent
+    FlashyDirective
   ],
   imports: [
     RouterModule.forRoot(meineRouten),
     BrowserModule,
-    FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MeinModule
   ],
   providers: [VideoDBService, {provide: 'VideoComponentConfig', useValue: 'meineConfig'}],
   bootstrap: [AppComponent]

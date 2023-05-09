@@ -41,24 +41,26 @@
   </li>
 </ol>
 
-<div>
-  <p>{{name | uppercase}}</p>
-</div>
+<div >
+  <div appFlashy>
+    <p>{{name | uppercase}}</p>
+  </div>
 
-<div>
-  <p [class.green]="isGreenActive">{{name | uppercase}}</p>
-</div>
+  <div>
+    <p [class.green]="isGreenActive">{{name | uppercase}}</p>
+  </div>
 
-<div>
-  <p [ngClass]="{disabled: isDisabled, green: isGreenActive}">{{name | uppercase}}</p>
-</div>
+  <div>
+    <p [ngClass]="{disabled: isDisabled, green: isGreenActive}">{{name | uppercase}}</p>
+  </div>
 
-<div>
-  <p [style.color]="meineFarbe">{{name | uppercase}}</p>
-</div>
+  <div>
+    <p [style.color]="meineFarbe">{{name | uppercase}}</p>
+  </div>
 
-<div>
-  <p [ngStyle]="{'color': meineFarbe, 'font-size': '30px'}">{{name | uppercase}}</p>
+  <div>
+    <p [ngStyle]="{'color': meineFarbe, 'font-size': '30px'}">{{name | uppercase}}</p>
+  </div>
 </div>
 
 <div (click)="myClick1()">
