@@ -13,6 +13,10 @@ export class FlashyDirective {
     this.flash('green');
   }
 
+  @HostListener('mouseleave') onMouseLeave() {
+    this.flash('white');
+  }
+
   private flash(color: string) {
     this.ele.nativeElement.style.backgroundColor = color;
   }
