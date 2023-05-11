@@ -42,7 +42,7 @@
 </ol>
 
 <div >
-  <div appFlashy>
+  <div appFlashy='red'>
     <p>{{name | uppercase}}</p>
   </div>
 
@@ -58,7 +58,7 @@
     <p [style.color]="meineFarbe">{{name | uppercase}}</p>
   </div>
 
-  <div>
+  <div appFlashy="green">
     <p [ngStyle]="{'color': meineFarbe, 'font-size': '30px'}">{{name | uppercase}}</p>
   </div>
 </div>
@@ -74,4 +74,6 @@
 <div (click)="myClick3()">
   <p>click um videos zu sehen.</p>
 </div>
+
+<app-for-child></app-for-child>
 

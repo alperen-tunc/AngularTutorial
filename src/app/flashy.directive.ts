@@ -1,23 +1,24 @@
-import {Directive, ElementRef, HostListener} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 
 @Directive({
   selector: '[appFlashy]'
 })
 export class FlashyDirective {
+  @Input("appFlashy") color: string | undefined;
 
   constructor(private ele: ElementRef) {
 
   }
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.flash('green');
+    this.flash(this.color);
   }
 
   @HostListener('mouseleave') onMouseLeave() {
     this.flash('white');
   }
 
-  private flash(color: string) {
+  private flash(color: string | undefined) {
     this.ele.nativeElement.style.backgroundColor = color;
   }
 

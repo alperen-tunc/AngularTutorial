@@ -9,16 +9,19 @@ import { VideoDBService } from "./shared/video-db.service";
 import { Routes, RouterModule } from "@angular/router";
 import {MeinModule} from "./mein/mein.module";
 import { FlashyDirective } from './flashy.directive';
+import { ForChildComponent } from './for-child/for-child.component';
 
 const meineRouten: Routes = [
   { path: 'video/:id', component: VideoComponent },
+  { path: 'forChild', component: ForChildComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoComponent,
-    FlashyDirective
+    FlashyDirective,
+    ForChildComponent
   ],
   imports: [
     RouterModule.forRoot(meineRouten),
